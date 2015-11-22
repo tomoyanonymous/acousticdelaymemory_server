@@ -7,7 +7,7 @@ var delaylineID;
 function sio(server){
 
   var sio = socketio.listen(server);
-  sio.set('transports',['websocket']);
+  // sio.set('transports',['websocket']);
 
   //接続
   sio.on('connection',function(socket){
