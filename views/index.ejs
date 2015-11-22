@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= title %></title>
+  <title>Acoustic delay (⇔) memory</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.min.js" charset="utf-8"></script>
   <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
   <script src="/javascripts/client.js" charset="utf-8"></script>
-  <script src="/javascripts/render.js" charset="utf-8"></script>
 
 </head>
 <body>
-  テスト表示です。　ほげほげ
-  <div class="render"></div>
+  <div id="render"></div>
+  <a href="#"><div id="menubutton">メニューボタン</div></a>
   <div id="modalmenu">
     <div class="statement">
-
+      ここにステートメントが入る予定です.
     </div>
-
+<a href="#"><div id="closebutton">閉じるボタン</div></a>
   </div>
+  <script src="/javascripts/render.js" charset="utf-8"></script>
 </body>
 </html>
