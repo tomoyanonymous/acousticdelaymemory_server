@@ -1,5 +1,6 @@
 var dummymessege = 'thisisatestmessege';
-
+var bindata = "";
+var numdata = [];
 function setup(){
 var canvas = createCanvas(800,600);
 canvas.parent("render");
@@ -16,9 +17,10 @@ if(!receiveddata){
 }else{
   data = receiveddata;
   }
-  var bindata = "";
+
   for(var i=0; i < data.length ;i++){
   bindata= bindata + data.charCodeAt(i).toString(2);
+  numdata[i] =parseInt(data.charCodeAt(i).toString(2),2);
 }
 bindata = ("0000000"+bindata).slice(-8);
 
