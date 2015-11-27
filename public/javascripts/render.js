@@ -20,6 +20,7 @@ if(!receiveddata){
   for(var i=0; i < data.length ;i++){
   bindata= bindata + data.charCodeAt(i).toString(2);
 }
+bindata = ("0000000"+bindata).slice(-8);
 
   text(data,100,100);
   text(bindata,100,150,200,150);
