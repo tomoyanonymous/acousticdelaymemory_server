@@ -3,7 +3,7 @@ var socketio = require('socket.io');
 module.exports = sio;
 
 var delaylineID;
-
+var ismachineconnected =false;
 function sio(server){
 
   var sio = socketio.listen(server);
@@ -11,15 +11,24 @@ function sio(server){
 
   //接続
   sio.on('connection',function(socket){
-    console.log('user connected.');
+    console.log('user connected. ID is '+ socket.id);
 
     //ディレイラインのユーザーIDを判別
     socket.on('setDelaylineID',function(msg){
-      if(delaylineID){
-        console.log('ID of delayline was overwrited to' +socket.id);
+      if(ismachineconnected){
+        console.log("refused. already connected.");
+      }else{
+        delaylineID = socket.id;
+        console.log("delaylineID is "+ socket.id);
+        var ismachineconnected = true;
       }
-      delaylineID = socket.id;
     });
+    socket.on('unsetDelaylineID',function(){
+      if(ismachineconnected){
+        var ismachineconnected = false;
+        console.log("machine was disconnected.");
+      }
+    })
 
     socket.on('serialMsg',function(msg){
 

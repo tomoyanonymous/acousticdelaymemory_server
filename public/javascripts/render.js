@@ -1,6 +1,8 @@
-var dummymessege = 'thisisatestmessege';
+var dummymessege = new Uint8Array();
 var bindata = "";
+var textdata ="";
 var numdata = [];
+
 function setup(){
 var canvas = createCanvas(800,600);
 canvas.parent("render");
@@ -16,18 +18,18 @@ if(!receiveddata){
   data = dummymessege;
 }else{
   data = receiveddata;
-  }
-
-  for(var i=0; i < data.length ;i++){
-  bindata= bindata + data.charCodeAt(i).toString(2);
-  numdata[i] =parseInt(data.charCodeAt(i).toString(2),2);
 }
-bindata = ("0000000"+bindata).slice(-8);
+textdata = String.fromCharCode.apply(null,data);
+//   for(var i=0; i < data.length ;i++){
+//   // bindata= bindata + data.fromCharCode(i).toString(2);
+//   numdata =numdata+parseInt(data,16);
+// }
+// bindata = ("0000000"+bindata).slice(-8);
 
   text(data,100,100);
-  text(bindata,100,150,200,150);
+  text(textdata,100,150,200,150);
 
-
+background(155,140,130,100);
 }
 
 // decode functions
