@@ -1,4 +1,5 @@
 var socket = io.connect();
+var beforedata;
 var receiveddata;
 var textdata = document.getElementById('textdata');
 var submitbutton = document.getElementById('submitbutton');
@@ -11,8 +12,10 @@ console.log('user connected');
 });
 
 socket.on('delaylineData',function(msg){
-  console.log('received data:' + msg);
-  receiveddata = new Uint8Array(msg);
+
+    receiveddata = msg;
+    p5.redraw();
+    console.log('received data:' + receiveddata);
 });
 
 socket.on('disconnect', function(){
@@ -24,7 +27,7 @@ socket.emit('writeDelayline',data);
 
 }
 
-submitbutton.addEventListener('click',function(){
-  socket.emit('writeDelayline',textdata);
-  console.log("data emmited")
-});
+// submitbutton.addEventListener('click',function(){
+//   socket.emit('writeDelayline',textdata);
+//   console.log("data emmited")
+// });

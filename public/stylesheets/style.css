@@ -195,7 +195,7 @@ textarea {
     clip: auto; }
 
 html, body {
-  background-color: #000;
+  background-color: #fff;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -208,7 +208,8 @@ html, body {
     margin: 0 200px; }
   html #render, body #render {
     position: relative;
-    width: 800px;
+    width: 80%;
+    height: 80%;
     margin: 0px auto;
     padding: 20px 0; }
   html #menubutton, body #menubutton {
@@ -217,7 +218,7 @@ html, body {
     top: 0px;
     width: 50px;
     height: 50px;
-    float: left; }
+    right: 0px; }
   html #modalmenu, body #modalmenu {
     position: fixed;
     z-index: -999;
@@ -229,7 +230,8 @@ html, body {
     left: 0px;
     background: #222;
     -webkit-transition: 0.6s;
-            transition: 0.6s; }
+            transition: 0.6s;
+    padding: 10%; }
     html #modalmenu #closebutton, body #modalmenu #closebutton {
       opacity: inherit;
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=NaN)";
@@ -239,3 +241,23 @@ html, body {
       position: fixed;
       top: 0px;
       right: 0px; }
+    html #modalmenu .css-bar, body #modalmenu .css-bar {
+      display: inline-block;
+      position: relative;
+      margin: 0 10px 3px 0;
+      padding: 0;
+      background: #000; }
+    html #modalmenu .css-bar, html #modalmenu .css-bar:before, html #modalmenu .css-bar:after, body #modalmenu .css-bar, body #modalmenu .css-bar:before, body #modalmenu .css-bar:after {
+      width: 18px;
+      height: 3px; }
+    html #modalmenu .css-bar:before, html #modalmenu .css-bar:after, body #modalmenu .css-bar:before, body #modalmenu .css-bar:after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background: #000; }
+    html #modalmenu .css-bar:before, body #modalmenu .css-bar:before {
+      margin-top: -8px; }
+    html #modalmenu .css-bar:after, body #modalmenu .css-bar:after {
+      margin-top: 4px; }

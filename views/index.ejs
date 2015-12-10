@@ -3,23 +3,28 @@
 <head>
   <title>Acoustic delay (⇔) memory</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.min.js" charset="utf-8"></script>
-  <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+  <script src="/javascripts/libraries/p5.min.js" charset="utf-8"></script>
+  <script src="/javascripts/libraries/socket.io.js"></script>
   <script src="/javascripts/client.js" charset="utf-8"></script>
 
 </head>
 <body>
-  <form role="form" id="myform">
-      <input type="text" name ='text' id="textdata" value="initial text"/>
-      <button type="submit" id="submitbutton">submit</button>
-    </form>
+
   <div id="render"></div>
-  <a href="#"><div id="menubutton">メニューボタン</div></a>
+  <span class="css_var"></span>
+  <a href="#"><div id="menubutton"><span class="css_var"></span></div></a>
   <div id="modalmenu">
     <div class="statement">
-      ここにステートメントが入る予定です.
+      <h1>Acoustic Delay (⇔) Memory</h1>
+      この作品では空気を媒体とした音響遅延線メモリーの中に1バイト＝0/1のデータ列8つの情報が保存されている。<br>その保存されているデータをオンライン上からコンピュータや携帯電話のインターネットブラウザを使いリアルタイムで見ることができ、上書きすることも出来る。<br><br>
+      <hr>
+      音響遅延線メモリー(Acoustic Delay Line Memory)という記憶装置は、コンピュータの黎明期、1946~1970年代ごろまで使用されていた記憶装置である。<br>
+世界で初めてのコンピュータと一般的に言われるENIACの次の世代であるEDSACやEDVAC、UNIVAC、日本で初めての商用コンピュータのFUJICなどに利用された。<br><br>
+仕組みとしては、まず1/0のデータ列を音のパルスとして発する。もう一端のマイクロフォンでそれを受信する。受信するまでには距離÷音速の時間がかかる。その受信したパルス列を再び増幅し反対の端から再び発する。<br>
+こうしてデータの列を変化させないまま循環させ続け、「時間を遅らせる」事によってデータを保存する。<br>
+
     </div>
-<a href="#"><div id="closebutton">閉じるボタン</div></a>
+<a href="#"><div id="closebutton"><span class="css_var"></span></div></a>
   </div>
 
   <script src="/javascripts/render.js" charset="utf-8"></script>

@@ -1,7 +1,7 @@
 @import 'sanitize';
 
 html,body{
-  background-color: #000;
+  background-color: #fff;
   top:0px;
   left:0px;
   width:100%;
@@ -15,7 +15,8 @@ form{
 }
   #render{
     position:relative;
-    width:800px;
+    width:80%;
+    height:80%;
     margin:0px auto;
     padding:20px 0;
   }
@@ -25,7 +26,7 @@ form{
     top:0px;
     width:50px;
     height:50px;
-    float:left;
+    right:0px;
   }
   #modalmenu{
     position: fixed;
@@ -37,6 +38,7 @@ form{
     left:0px;
     background:#222;
     transition:0.6s;
+    padding:10%;
     #closebutton{
       opacity:inherit;
       background-color: #fff;
@@ -46,5 +48,30 @@ form{
       top:0px;
       right:0px;
     }
+    .css-bar{
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 3px 0;
+  padding: 0;
+  background: #000;
+}
+.css-bar, .css-bar:before, .css-bar:after{
+  width: 18px;
+  height: 3px;
+}
+.css-bar:before, .css-bar:after{
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: #000;
+}
+.css-bar:before{
+  margin-top: -8px;
+}
+.css-bar:after{
+  margin-top: 4px;
+}
   }
 }

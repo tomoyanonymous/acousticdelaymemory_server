@@ -20,20 +20,14 @@ function sio(server){
       }else{
         delaylineID = socket.id;
         console.log("delaylineID is "+ socket.id);
-        var ismachineconnected = true;
+        ismachineconnected = true;
       }
     });
-    socket.on('unsetDelaylineID',function(){
-      if(ismachineconnected){
-        var ismachineconnected = false;
-        console.log("machine was disconnected.");
-      }
-    })
 
     socket.on('serialMsg',function(msg){
 
       if(socket.id !=delaylineID){
-        console.log('invalid ID'+socket.id);
+        console.log('invalid socket ID'+socket.id);
       }else{
         socket.broadcast.emit("delaylineData",msg);
       }
@@ -41,6 +35,16 @@ function sio(server){
 
     socket.on('writeDelayline',function(msg){
       socket.to(delaylineID).emit('serialwrite',msg);
+    });
+    socket.on('unsetDelaylineID',function(){
+
+        ismachineconnected = false;
+        console.log("machine was disconnected.");
+
+    });
+    socket.on('disconnect',function(req,res){
+      ismachineconnected = false;
+      console.log("machine was disconnected.");
     });
 
   });
