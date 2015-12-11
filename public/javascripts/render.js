@@ -24,6 +24,7 @@ var s = function(p){
     var canvas = p.createCanvas(canvaswidth,canvasheight);
 
     canvas.parent("render");
+    p.noStroke();
     p.background(0,0,0,255);
     p.textSize(18);
     p.fill(0,0,0);
