@@ -56,18 +56,19 @@ var s = function(p){
 
   p.mouseClicked = function(){
     var bitindex = Math.floor(p.mouseX*8/canvaswidth);
+    var sendarray = binarray;
     console.log("clicked. bitindex",bitindex);
     p.fill(255,255,255,255);
     p.rect(canvaswidth*bitindex/8,0,canvaswidth/8,canvasheight);
     p.fill(0);
-    var bit = binarray[bitindex];
+    var bit = sendarray[bitindex];
 
     bit = (bit*-1)+1;
     binarray[bitindex]=bit;
     console.log('array changed'+binarray);
     var sendbindata=''; //binarray.toString();
-    for(var i=0; i < binarray.length ;i++){
-      sendbindata =  sendbindata += binarray[i].toString(10);
+    for(var i=0; i < sendarray.length ;i++){
+      sendbindata =  sendbindata += sendarray[i].toString(10);
       console.log(sendbindata);
     }
     senddata = parseInt(sendbindata,2);
@@ -76,18 +77,19 @@ var s = function(p){
   }
   p.touchStarted = function(){
     var bitindex = Math.floor(p.touchX*8/canvaswidth);
+    var sendarray = binarray;
     console.log("clicked. bitindex",bitindex);
     p.fill(255,255,255,255);
     p.rect(canvaswidth*bitindex/8,0,canvaswidth/8,canvasheight);
     p.fill(0);
-    var bit = binarray[bitindex];
+    var bit = sendarray[bitindex];
 
     bit = (bit*-1)+1;
-    binarray[bitindex]=bit;
-    console.log('array changed'+binarray);
+    sendarray[bitindex]=bit;
+    console.log('array changed'+sendarray);
     var sendbindata=''; //binarray.toString();
-    for(var i=0; i < binarray.length ;i++){
-      sendbindata =  sendbindata += binarray[i].toString(10);
+    for(var i=0; i < sendarray.length ;i++){
+      sendbindata =  sendbindata += sendarray[i].toString(10);
       console.log(sendbindata);
     }
     senddata = parseInt(sendbindata,2);
