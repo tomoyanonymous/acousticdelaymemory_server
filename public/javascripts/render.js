@@ -13,9 +13,9 @@ var s = function(p){
 
   p.setup = function (){
     // canvaswidth=window.innerWidth*0.8-1;
-    canvaswidth=400;
+    canvaswidth=401;
     // canvasheight=window.innerHeight*0.8-1;
-    canvasheight=400;
+    canvasheight=401;
     var canvas = p.createCanvas(canvaswidth,canvasheight);
 
     canvas.parent("render");
