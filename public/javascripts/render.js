@@ -74,6 +74,26 @@ var s = function(p){
     socket.emit('writeDelayline',senddata);
     console.log("data was sent "+ senddata);
   }
+  p.touchStarted = function(){
+    var bitindex = Math.floor(p.touchX*8/canvaswidth);
+    console.log("clicked. bitindex",bitindex);
+    p.fill(255,255,255,255);
+    p.rect(canvaswidth*bitindex/8,0,canvaswidth/8,canvasheight);
+    p.fill(0);
+    var bit = binarray[bitindex];
+
+    bit = (bit*-1)+1;
+    binarray[bitindex]=bit;
+    console.log('array changed'+binarray);
+    var sendbindata=''; //binarray.toString();
+    for(var i=0; i < binarray.length ;i++){
+      sendbindata =  sendbindata += binarray[i].toString(10);
+      console.log(sendbindata);
+    }
+    senddata = parseInt(sendbindata,2);
+    socket.emit('writeDelayline',senddata);
+    console.log("data was sent "+ senddata);
+  }
 }
 var p5=new p5(s);
 var modalmenu = document.getElementById('modalmenu');
