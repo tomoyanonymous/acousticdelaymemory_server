@@ -83,7 +83,7 @@ var s = function(p){
   p.touchStarted = function(){
 
     if (p.touchX){
-    var bitindex = Math.floor(p.mouseX*8/canvaswidth);
+    var bitindex = Math.floor(p.touchX*8/canvaswidth);
   }
     var sendarray = new Uint8Array(binarray);
 
