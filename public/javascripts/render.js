@@ -49,9 +49,9 @@ var s = function(p){
         p.fill(binarray[7-i]*255,binarray[7-i]*255,binarray[7-i]*255);
         p.rect(canvaswidth*(7-i)/8,0,canvaswidth/8,canvasheight);
       }
-      if(textbox.focus()==0){
+
         textbox.value=data.charCodeAt(0);
-      }
+
       receiveddata='';
 
     }
