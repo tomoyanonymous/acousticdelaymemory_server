@@ -6,14 +6,16 @@ var numdata = [];
 var senddata='';
 var canvaswidth;
 var canvasheight;
-
+var textbox = document.form1.chardata;
 var s = function(p){
 
 
 
   p.setup = function (){
-    canvaswidth=window.innerWidth*0.8-1;
-    canvasheight=window.innerHeight*0.8-1;
+    // canvaswidth=window.innerWidth*0.8-1;
+    canvaswidth=400;
+    // canvasheight=window.innerHeight*0.8-1;
+    canvasheight=400;
     var canvas = p.createCanvas(canvaswidth,canvasheight);
 
     canvas.parent("render");
@@ -47,7 +49,9 @@ var s = function(p){
         p.fill(binarray[7-i]*255,binarray[7-i]*255,binarray[7-i]*255);
         p.rect(canvaswidth*(7-i)/8,0,canvaswidth/8,canvasheight);
       }
-
+      if(textbox.focus()==0){
+        textbox.value=data.charCodeAt(0);
+      }
       receiveddata='';
 
     }
@@ -108,10 +112,23 @@ var s = function(p){
   }
 }
 var p5=new p5(s);
+
+function submitchar(){
+  var senddata = textbox.value.charCodeAt(0);
+  console.log("data was sent "+ senddata);
+  socket.emit('writeDelayline',senddata);
+}
+function harfchar(obj) {
+var v=obj.value;
+v=v.replace(/[^0-9a-zA-Z!\"#$%&\'\(\)]/,'');
+obj.value=v;
+}
 var modalmenu = document.getElementById('modalmenu');
 var menubutton = document.getElementById('menubutton');
 
 var closebutton = document.getElementById('closebutton');
+
+
 console.log(menubutton);
 menubutton.addEventListener('click',function(){
   // modalmenu.style.setProperty("display","block");

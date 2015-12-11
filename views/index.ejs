@@ -9,9 +9,14 @@
 
 </head>
 <body>
-
+  <div class="wrap">
+<div id="charbox">
+  <form name="form1">
+  <textarea name="chardata" id="chardata" cols="1" rows="1" maxlength="1" onkeydown="if(event.keyCode == 13){javascript:submitchar();}"  onkeyup="harfchar(this)">A</textarea>
+  </form>
+</div>
   <div id="render"></div>
-  <span class="css_var"></span>
+
   <a href="#"><div id="menubutton"><img src="/images/menu.svg" alt=""></div></a>
   <div id="modalmenu">
     <div class="statement">
@@ -40,7 +45,8 @@ Googleドキュメントという文章をリアルタイムで共同編集で�
     </div>
 <a href="#"><div id="closebutton"><img src="/images/tojiru.svg" alt=""></div></a>
   </div>
-
+</div>
   <script src="/javascripts/render.js" charset="utf-8"></script>
+
 </body>
 </html>
