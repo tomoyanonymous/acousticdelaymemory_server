@@ -80,7 +80,7 @@ var s = function(p){
         console.log("data was sent "+ senddata);
     }
   }
-  p.touchStareted = function(){
+  p.touchStarted = function(){
 
     if (p.touchX){
     var bitindex = Math.floor(p.mouseX*8/canvaswidth);
