@@ -200,7 +200,8 @@ html, body {
   left: 0px;
   width: 100%;
   height: 100%;
-  color: #fff; }
+  color: #fff;
+  overflow-y: scroll; }
   html form, body form {
     background-color: #fff;
     color: #000;
@@ -210,14 +211,14 @@ html, body {
     position: relative;
     width: 80%;
     height: 80%;
-    margin: 0px auto;
-    padding: 20px 0; }
+    margin: 5% auto;
+    padding: 0 0; }
   html #menubutton, body #menubutton {
-    background-color: #ccc;
+    background-color: #fff;
     position: absolute;
     top: 0px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     right: 0px; }
   html #modalmenu, body #modalmenu {
     position: fixed;
@@ -228,36 +229,37 @@ html, body {
     height: 100%;
     top: 0px;
     left: 0px;
-    background: #222;
+    background-color: #222;
     -webkit-transition: 0.6s;
             transition: 0.6s;
-    padding: 10%; }
+    padding: 3% 10%;
+    line-height: 35.2px;
+    line-height: 2.2rem;
+    overflow-y: scroll;
+    letter-spacing: 1.6px;
+    letter-spacing: 0.1rem; }
     html #modalmenu #closebutton, body #modalmenu #closebutton {
       opacity: inherit;
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=NaN)";
-      background-color: #fff;
+      background-color: none;
       width: 40px;
       height: 40px;
       position: fixed;
       top: 0px;
       right: 0px; }
-    html #modalmenu .css-bar, body #modalmenu .css-bar {
-      display: inline-block;
-      position: relative;
-      margin: 0 10px 3px 0;
-      padding: 0;
-      background: #000; }
-    html #modalmenu .css-bar, html #modalmenu .css-bar:before, html #modalmenu .css-bar:after, body #modalmenu .css-bar, body #modalmenu .css-bar:before, body #modalmenu .css-bar:after {
-      width: 18px;
-      height: 3px; }
-    html #modalmenu .css-bar:before, html #modalmenu .css-bar:after, body #modalmenu .css-bar:before, body #modalmenu .css-bar:after {
-      display: block;
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      background: #000; }
-    html #modalmenu .css-bar:before, body #modalmenu .css-bar:before {
-      margin-top: -8px; }
-    html #modalmenu .css-bar:after, body #modalmenu .css-bar:after {
-      margin-top: 4px; }
+    html #modalmenu .statement, body #modalmenu .statement {
+      width: 100%;
+      padding: 0 3%; }
+    html #modalmenu hr, body #modalmenu hr {
+      border-top: solid;
+      margin: 20px auto; }
+    html #modalmenu p, body #modalmenu p {
+      margin: 5px auto; }
+    html #modalmenu h1, body #modalmenu h1 {
+      font-size: 40pt;
+      font-weight: normal;
+      letter-spacing: 0.8px;
+      letter-spacing: 0.05rem;
+      line-height: 32px;
+      line-height: 2rem;
+      margin: 20px 0; }

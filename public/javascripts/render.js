@@ -1,6 +1,6 @@
 var dummymessege = new Uint8Array();
 var bindata = new Uint8Array();;
-var binarray = [,,,,,,,];
+var binarray = [0,0,0,0,0,0,0,0];
 var textdata ="";
 var numdata = [];
 var senddata='';
@@ -54,47 +54,57 @@ var s = function(p){
   }
 
 
-  p.mouseClicked = function(){
+  p.mousePressed = function(){
+
+    if (p.mouseX){
     var bitindex = Math.floor(p.mouseX*8/canvaswidth);
-    var sendarray = binarray;
-    console.log("clicked. bitindex",bitindex);
-    p.fill(255,255,255,255);
-    p.rect(canvaswidth*bitindex/8,0,canvaswidth/8,canvasheight);
-    p.fill(0);
-    var bit = sendarray[bitindex];
-
-    bit = (bit*-1)+1;
-    binarray[bitindex]=bit;
-    console.log('array changed'+binarray);
-    var sendbindata=''; //binarray.toString();
-    for(var i=0; i < sendarray.length ;i++){
-      sendbindata =  sendbindata += sendarray[i].toString(10);
-      console.log(sendbindata);
-    }
-    senddata = parseInt(sendbindata,2);
-    socket.emit('writeDelayline',senddata);
-    console.log("data was sent "+ senddata);
   }
-  p.touchStarted = function(){
-    var bitindex = Math.floor(p.touchX*8/canvaswidth);
-    var sendarray = binarray;
-    console.log("clicked. bitindex",bitindex);
-    p.fill(255,255,255,255);
-    p.rect(canvaswidth*bitindex/8,0,canvaswidth/8,canvasheight);
-    p.fill(0);
-    var bit = sendarray[bitindex];
+    var sendarray = new Uint8Array(binarray);
 
-    bit = (bit*-1)+1;
-    sendarray[bitindex]=bit;
-    console.log('array changed'+sendarray);
-    var sendbindata=''; //binarray.toString();
-    for(var i=0; i < sendarray.length ;i++){
-      sendbindata =  sendbindata += sendarray[i].toString(10);
-      console.log(sendbindata);
+
+    if(bitindex > -1 && bitindex < 8 ){
+        console.log("clicked. bitindex",bitindex,'mousex',p.mouseX);
+
+        var bit = sendarray[bitindex];
+        bit = (bit*-1)+1;
+        sendarray[bitindex]=bit;
+        console.log('array changed'+sendarray);
+
+        var sendbindata=''; //binarray.toString();
+        for(var i=0; i < sendarray.length ;i++){
+          sendbindata =  sendbindata += sendarray[i].toString(10);
+          console.log(sendbindata);
+        }
+        senddata = parseInt(sendbindata,2);
+        socket.emit('writeDelayline',senddata);
+        console.log("data was sent "+ senddata);
     }
-    senddata = parseInt(sendbindata,2);
-    socket.emit('writeDelayline',senddata);
-    console.log("data was sent "+ senddata);
+  }
+  p.touchStareted = function(){
+
+    if (p.touchX){
+    var bitindex = Math.floor(p.mouseX*8/canvaswidth);
+  }
+    var sendarray = new Uint8Array(binarray);
+
+
+    if(bitindex > -1 && bitindex < 8 ){
+        console.log("clicked. bitindex",bitindex,'mousex',p.touchX);
+
+        var bit = sendarray[bitindex];
+        bit = (bit*-1)+1;
+        sendarray[bitindex]=bit;
+        console.log('array changed'+sendarray);
+
+        var sendbindata=''; //binarray.toString();
+        for(var i=0; i < sendarray.length ;i++){
+          sendbindata =  sendbindata += sendarray[i].toString(10);
+          console.log(sendbindata);
+        }
+        senddata = parseInt(sendbindata,2);
+        socket.emit('writeDelayline',senddata);
+        console.log("data was sent "+ senddata);
+    }
   }
 }
 var p5=new p5(s);
@@ -106,8 +116,10 @@ console.log(menubutton);
 menubutton.addEventListener('click',function(){
   // modalmenu.style.setProperty("display","block");
 
-  modalmenu.style.setProperty("opacity",0.6);
+  modalmenu.style.setProperty("opacity",0.75);
   modalmenu.style.setProperty("z-index",999);
+  menubutton.style.setProperty("opacity",0);
+
 
 });
 closebutton.addEventListener('click',function(){
@@ -115,5 +127,6 @@ closebutton.addEventListener('click',function(){
 
   modalmenu.style.setProperty("opacity",0);
   modalmenu.style.setProperty("z-index",-999);
+  menubutton.style.setProperty("opacity",1);
 
 });
