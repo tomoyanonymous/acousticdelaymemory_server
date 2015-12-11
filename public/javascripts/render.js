@@ -6,7 +6,12 @@ var numdata = [];
 var senddata='';
 var canvaswidth;
 var canvasheight;
+var ismemorytimeout;
 var textbox = document.form1.chardata;
+
+function memoryTimeout(state){
+   ismemorytimeout = state;
+}
 var s = function(p){
 
 
@@ -27,6 +32,7 @@ var s = function(p){
   }
 
   p.draw = function(){
+
     p.background(0,0,0,255);
     var data =0;
     if(!receiveddata){
@@ -35,7 +41,9 @@ var s = function(p){
       return;
     }else{
       data = receiveddata;
-
+if(memoryTimeout==true){
+  data=null;
+}
       // textdata = String.fromCharCode.apply(null,data);
       bindata=  parseInt(data,10).toString(2);
 
@@ -49,9 +57,12 @@ var s = function(p){
         p.fill(binarray[7-i]*255,binarray[7-i]*255,binarray[7-i]*255);
         p.rect(canvaswidth*(7-i)/8,0,canvaswidth/8,canvasheight);
       }
-
-        textbox.value=data.charCodeAt(0);
-
+if(data){
+        textbox.value=String.fromCharCode(data);
+      }else{
+        textbox.value="";
+      }
+        console.log('char='+textbox.value);
       receiveddata='';
 
     }
@@ -59,7 +70,7 @@ var s = function(p){
 
 
   p.mousePressed = function(){
-
+// memoryTimeout(0);
     if (p.mouseX){
     var bitindex = Math.floor(p.mouseX*8/canvaswidth);
   }
@@ -85,7 +96,7 @@ var s = function(p){
     }
   }
   p.touchStarted = function(){
-
+// memoryTimeout(0);
     if (p.touchX){
     var bitindex = Math.floor(p.touchX*8/canvaswidth);
   }

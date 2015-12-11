@@ -21,8 +21,12 @@ function sio(server){
         delaylineID = socket.id;
         console.log("delaylineID is "+ socket.id);
         ismachineconnected = true;
+        socket.broadcast.emit("memorystate",ismachineconnected)
       }
     });
+    socket.on('memTimeout',function(msg){
+      socket.broadcast.emit("memTimeout2",1);
+    })
 
     socket.on('serialMsg',function(msg){
 
