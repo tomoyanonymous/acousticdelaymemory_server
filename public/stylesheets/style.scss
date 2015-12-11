@@ -8,7 +8,8 @@ html,body{
   height:100%;
 color:#fff;
 overflow-y: scroll;
-
+font-family:Avenir Next ,Avenir, "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+}
 .wrap{
   width:100%;
   height:100%;
@@ -65,20 +66,27 @@ align-items: center;
     height:100%;
     top:0px;
     left:0px;
-    background-color:#222;
+  padding:3% 10%;
     transition:0.6s;
-    padding:3% 10%;
+    background-color: #222;
     line-height:2.2rem;
     overflow-y: scroll;
     letter-spacing: 0.1rem;
+
+    img{
+      // background-color: #fff;
+      // opacity:1;
+    }
     #closebutton{
-      opacity:inherit;
+      opacity:1;
       background-color: none;
       width:40px;
       height:40px;
       position:fixed;
       top:0px;
       right:0px;
+      z-index:1005;
+
     }
     .statement{
       width:100%;
@@ -100,5 +108,5 @@ align-items: center;
   }
 
   }
-  }
+  
 }

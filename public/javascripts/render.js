@@ -145,16 +145,16 @@ console.log(menubutton);
 menubutton.addEventListener('click',function(){
   // modalmenu.style.setProperty("display","block");
 
-  modalmenu.style.setProperty("opacity",0.75);
+  modalmenu.style.setProperty('opacity',0.8);
   modalmenu.style.setProperty("z-index",999);
   menubutton.style.setProperty("opacity",0);
 
 
 });
 closebutton.addEventListener('click',function(){
-  // modalmenu.style.setProperty("display","block");
+  // modalmenu.style.setProperty("display","none");
 
-  modalmenu.style.setProperty("opacity",0);
+  modalmenu.style.setProperty('opacity',0);
   modalmenu.style.setProperty("z-index",-999);
   menubutton.style.setProperty("opacity",1);
 
